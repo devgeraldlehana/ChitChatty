@@ -17,6 +17,7 @@
 		A5BD91412060420000745FC8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD91402060420000745FC8 /* Extensions.swift */; };
 		A5BD91432060435C00745FC8 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD91422060435C00745FC8 /* NetworkController.swift */; };
 		A5BD9145206043CB00745FC8 /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD9144206043CB00745FC8 /* NetworkModels.swift */; };
+		A5BD91472060445800745FC8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD91462060445800745FC8 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A5BD91402060420000745FC8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A5BD91422060435C00745FC8 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		A5BD9144206043CB00745FC8 /* NetworkModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
+		A5BD91462060445800745FC8 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		A5BD913A20603FA700745FC8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A5BD91462060445800745FC8 /* BaseViewController.swift */,
 				A5BD913C20603FCF00745FC8 /* SafariKeychainManager.swift */,
 				A5BD913E2060402E00745FC8 /* KeychainService.swift */,
 				A5BD91422060435C00745FC8 /* NetworkController.swift */,
@@ -180,6 +183,7 @@
 				A5BD91432060435C00745FC8 /* NetworkController.swift in Sources */,
 				A5BD9145206043CB00745FC8 /* NetworkModels.swift in Sources */,
 				A5BD913F2060402E00745FC8 /* KeychainService.swift in Sources */,
+				A5BD91472060445800745FC8 /* BaseViewController.swift in Sources */,
 				A5BD912820603DCC00745FC8 /* AppDelegate.swift in Sources */,
 				A5BD913D20603FCF00745FC8 /* SafariKeychainManager.swift in Sources */,
 			);
