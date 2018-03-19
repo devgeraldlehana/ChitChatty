@@ -30,10 +30,6 @@ class LoginViewController: BaseViewController {
         password.text = "1234"
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if KeychainService.isBiometricsAvailable() {
@@ -79,7 +75,6 @@ class LoginViewController: BaseViewController {
     
     // MARK: - Webservices
     func makeNetworkRequest(withUsername u:String, andPassword p:String){
-        let busyIndicator = UIViewController.displaySpinner(onView: self.view, title: "Logging in.")
         NetworkController.login(withUsername: u, andPassword: p) { logInfo in
             if let status = logInfo?.result {
                 if !status {
@@ -95,7 +90,6 @@ class LoginViewController: BaseViewController {
                 self.presentDialog(message: "Unexpected data received.")
             }
         }
-        UIViewController.removeSpinner(spinner: busyIndicator)
     }
     
     // MARK: - Authentication
