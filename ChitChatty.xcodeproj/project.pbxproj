@@ -78,8 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				A5BD9144206043CB00745FC8 /* NetworkModels.swift */,
-				A5BD913C20603FCF00745FC8 /* SafariKeychainManager.swift */,
-				A5BD913E2060402E00745FC8 /* KeychainService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,6 +85,8 @@
 		A5BD913A20603FA700745FC8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A5BD913C20603FCF00745FC8 /* SafariKeychainManager.swift */,
+				A5BD913E2060402E00745FC8 /* KeychainService.swift */,
 				A5BD91422060435C00745FC8 /* NetworkController.swift */,
 				A5BD91402060420000745FC8 /* Extensions.swift */,
 			);
