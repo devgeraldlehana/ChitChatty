@@ -63,9 +63,6 @@
 				A5BD913A20603FA700745FC8 /* Controller */,
 				A5BD912720603DCC00745FC8 /* AppDelegate.swift */,
 				A5BD912920603DCC00745FC8 /* ViewController.swift */,
-				A5BD912B20603DCC00745FC8 /* Main.storyboard */,
-				A5BD912E20603DCC00745FC8 /* Assets.xcassets */,
-				A5BD913020603DCC00745FC8 /* LaunchScreen.storyboard */,
 				A5BD913320603DCC00745FC8 /* Info.plist */,
 			);
 			path = ChitChatty;
@@ -90,6 +87,9 @@
 		A5BD913B20603FB500745FC8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A5BD912B20603DCC00745FC8 /* Main.storyboard */,
+				A5BD912E20603DCC00745FC8 /* Assets.xcassets */,
+				A5BD913020603DCC00745FC8 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
