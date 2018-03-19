@@ -47,49 +47,6 @@ extension UIImage {
         
         return newImage!
     }
-    
-    func roundImage() -> UIImage {
-        let tmpImg = self
-        
-        UIGraphicsBeginImageContext(CGSize(width: tmpImg.size.width, height: tmpImg.size.height))
-        
-        let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: tmpImg.size.width, height: tmpImg.size.height), cornerRadius: self.size.height/2)
-        
-        let context = UIGraphicsGetCurrentContext()
-        
-        context!.saveGState()
-        // Clip the drawing area to the path
-        path.addClip()
-        
-        // Draw the image into the context
-        tmpImg.draw(in: CGRect(x: 0, y: 0, width: tmpImg.size.width, height: tmpImg.size.height))
-        context!.restoreGState()
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
-    }
-    
-}
-
-extension UIImageView {
-    func roundedImage() {
-        self.layer.cornerRadius = self.frame.size.width / 2
-        self.clipsToBounds = true
-    }
-    
-    func downloadImageFromUrl(_ url: String) {
-        guard let url = URL(string: url) else { return }
-        URLSession.shared.dataTask(with: url, completionHandler: { [weak self] (data, response, error) -> Void in
-            guard let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            
-        }).resume()
-    }
 }
 
 extension UIViewController {
