@@ -13,6 +13,7 @@
 		A5BD912F20603DCC00745FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BD912E20603DCC00745FC8 /* Assets.xcassets */; };
 		A5BD913220603DCC00745FC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5BD913020603DCC00745FC8 /* LaunchScreen.storyboard */; };
 		A5BD913D20603FCF00745FC8 /* SafariKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD913C20603FCF00745FC8 /* SafariKeychainManager.swift */; };
+		A5BD913F2060402E00745FC8 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD913E2060402E00745FC8 /* KeychainService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A5BD913120603DCC00745FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5BD913320603DCC00745FC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5BD913C20603FCF00745FC8 /* SafariKeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariKeychainManager.swift; sourceTree = "<group>"; };
+		A5BD913E2060402E00745FC8 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				A5BD913C20603FCF00745FC8 /* SafariKeychainManager.swift */,
+				A5BD913E2060402E00745FC8 /* KeychainService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5BD912A20603DCC00745FC8 /* ViewController.swift in Sources */,
+				A5BD913F2060402E00745FC8 /* KeychainService.swift in Sources */,
 				A5BD912820603DCC00745FC8 /* AppDelegate.swift in Sources */,
 				A5BD913D20603FCF00745FC8 /* SafariKeychainManager.swift in Sources */,
 			);
