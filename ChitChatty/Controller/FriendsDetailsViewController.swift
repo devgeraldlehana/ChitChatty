@@ -25,7 +25,7 @@ class FriendsDetailsViewController: BaseViewController {
             return
         }
         self.title = frnd.alias
-        setImage(view: image, usingAlias: frnd.alias, orUrl: frnd.imageURL)
+        setImage(view: image, usingAlias: frnd.alias, orUrl: frnd.imageURL, size: CGSize(width: 100, height: 100))
         fullname.text = "\(frnd.firstName) \(frnd.lastName)"
         username.text = frnd.alias
         dob.text = frnd.dateOfBirth
