@@ -96,10 +96,25 @@
                     <view key="view" contentMode="scaleToFill" id="WfA-Sz-bfr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xPE-ee-oix">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xPE-ee-oix" firstAttribute="top" secondItem="Z8K-7e-riE" secondAttribute="top" id="Qho-2d-rY1"/>
+                            <constraint firstItem="Z8K-7e-riE" firstAttribute="trailing" secondItem="xPE-ee-oix" secondAttribute="trailing" id="eIn-aJ-Tg5"/>
+                            <constraint firstItem="Z8K-7e-riE" firstAttribute="bottom" secondItem="xPE-ee-oix" secondAttribute="bottom" id="foJ-9G-khU"/>
+                            <constraint firstItem="xPE-ee-oix" firstAttribute="leading" secondItem="Z8K-7e-riE" secondAttribute="leading" id="sYO-pj-qK9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Z8K-7e-riE"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="g0L-rB-4lH"/>
+                    <connections>
+                        <outlet property="settingsTable" destination="xPE-ee-oix" id="CYF-QU-tia"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHS-3d-xj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

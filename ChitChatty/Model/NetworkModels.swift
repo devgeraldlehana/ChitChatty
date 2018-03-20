@@ -30,3 +30,8 @@ struct Friends: Decodable {
     let imageURL:String
     let status:String
 }
+
+struct SettingsItems {
+    let itemSection:String
+    let itemTitle:String
+}

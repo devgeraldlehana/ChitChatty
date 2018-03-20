@@ -21,6 +21,7 @@
 		A5BD914B2060458200745FC8 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD914A2060458200745FC8 /* FriendsViewController.swift */; };
 		A5BD914D20604A6900745FC8 /* FriendsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD914C20604A6900745FC8 /* FriendsDetailsViewController.swift */; };
 		A5BD914F20604B6A00745FC8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD914E20604B6A00745FC8 /* SettingsViewController.swift */; };
+		A5BD91512060B9BE00745FC8 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD91502060B9BE00745FC8 /* UserDefaultsKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		A5BD914A2060458200745FC8 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		A5BD914C20604A6900745FC8 /* FriendsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDetailsViewController.swift; sourceTree = "<group>"; };
 		A5BD914E20604B6A00745FC8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A5BD91502060B9BE00745FC8 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				A5BD9144206043CB00745FC8 /* NetworkModels.swift */,
+				A5BD91502060B9BE00745FC8 /* UserDefaultsKeys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				A5BD91412060420000745FC8 /* Extensions.swift in Sources */,
 				A5BD91432060435C00745FC8 /* NetworkController.swift in Sources */,
 				A5BD9145206043CB00745FC8 /* NetworkModels.swift in Sources */,
+				A5BD91512060B9BE00745FC8 /* UserDefaultsKeys.swift in Sources */,
 				A5BD913F2060402E00745FC8 /* KeychainService.swift in Sources */,
 				A5BD914B2060458200745FC8 /* FriendsViewController.swift in Sources */,
 				A5BD91472060445800745FC8 /* BaseViewController.swift in Sources */,

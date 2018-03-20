@@ -32,20 +32,22 @@ class LoginViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if KeychainService.isBiometricsAvailable() {
-            guard let ksUsername = KeychainService.retrieveDefault() else { return }
-            KeychainService.biometricValidation(withReason: "Show me your 👍🏽 bro!!!!!", completion: { result in
-                DispatchQueue.main.async {
-                    if result {
-                        guard let ksPassword = KeychainService.loadPassword(account: ksUsername) else { return }
-                        self.username.text = ksUsername
-                        self.password.text = ksPassword
-                        self.login(animated)
-                    } else {
-                        self.presentDialog(message: "Biometric validation failed, please enter your credentials manually.")
+        if UserDefaults.standard.get(key: .BiometricAuthentication) {
+            if KeychainService.isBiometricsAvailable() {
+                guard let ksUsername = KeychainService.retrieveDefault() else { return }
+                KeychainService.biometricValidation(withReason: "Show me your 👍🏽 bro!!!!!", completion: { result in
+                    DispatchQueue.main.async {
+                        if result {
+                            guard let ksPassword = KeychainService.loadPassword(account: ksUsername) else { return }
+                            self.username.text = ksUsername
+                            self.password.text = ksPassword
+                            self.login(animated)
+                        } else {
+                            self.presentDialog(message: "Biometric validation failed, please enter your credentials manually.")
+                        }
                     }
-                }
-            })
+                })
+            }
         }
     }
     

@@ -113,11 +113,13 @@ extension BaseViewController {
         if let cachedImage = self.cache.object(forKey: cacheKey) {
             return cachedImage
         } else {
-            NetworkController.image(fromUrl: url, completion: { image in
-                guard let img = image?.resizeImage(targetSize: size) else { return }
-                self.cache.setObject(img, forKey: cacheKey)
-                returnImage = img
-            })
+            if UserDefaults.standard.get(key: .ImageDownoading) {
+                NetworkController.image(fromUrl: url, completion: { image in
+                    guard let img = image?.resizeImage(targetSize: size) else { return }
+                    self.cache.setObject(img, forKey: cacheKey)
+                    returnImage = img
+                })
+            }
         }
         return returnImage
     }
@@ -127,12 +129,28 @@ extension BaseViewController {
         if let cachedImage = self.cache.object(forKey: cacheKey) {
             view.image = cachedImage
         } else {
-            NetworkController.image(fromUrl: url, completion: { image in
-                guard let img = image?.resizeImage(targetSize: size) else { return }
-                self.cache.setObject(img, forKey: cacheKey)
-                view.image = img
-            })
+            if UserDefaults.standard.get(key: .ImageDownoading) {
+                NetworkController.image(fromUrl: url, completion: { image in
+                    guard let img = image?.resizeImage(targetSize: size) else { return }
+                    self.cache.setObject(img, forKey: cacheKey)
+                    view.image = img
+                })
+            }
         }
     }
 }
 
+extension UserDefaults{
+    func registerDefaults(){
+        UserDefaults.standard.register(defaults: [UserDefaultsKeys.BiometricAuthentication.rawValue : true])
+        UserDefaults.standard.register(defaults: [UserDefaultsKeys.ImageDownoading.rawValue : true])
+    }
+    
+    func get(key:UserDefaultsKeys) -> Bool {
+        return bool(forKey: key.rawValue)
+    }
+    
+    func set(value:Bool, forKey:UserDefaultsKeys){
+        set(value, forKey: forKey.rawValue)
+    }
+}
