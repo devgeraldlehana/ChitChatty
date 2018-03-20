@@ -16,7 +16,11 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         let com = [SettingsItems(itemSection: " ", itemTitle: "About Developer"), SettingsItems(itemSection: " ", itemTitle: "Feedback")]
-        let res = [SettingsItems(itemSection: "Allow:", itemTitle: "Biometric Authentication"), SettingsItems(itemSection: "Allow:", itemTitle: "Image Downoading")]
+        var res = [SettingsItems]()
+        if KeychainService.isBiometricsAvailable() {
+            res.append(SettingsItems(itemSection: "Allow:", itemTitle: "Biometric Authentication"))
+        }
+        res.append(SettingsItems(itemSection: "Allow:", itemTitle: "Image Downoading"))
         let aut = [SettingsItems(itemSection: "  ", itemTitle: "Password Reset")]
         
         numberOfDataInSection.append(com)
@@ -86,7 +90,7 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
             presentDialog(message: "Your device does not support emails.")
         } else {
             let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
+            mail.mailComposeDelegate = self
             mail.setToRecipients([email])
             mail.setSubject(subject)
             self.present(mail, animated: true)
