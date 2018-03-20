@@ -25,11 +25,7 @@ class FriendsDetailsViewController: BaseViewController {
             return
         }
         self.title = frnd.alias
-        NetworkController.image(fromUrl: frnd.imageURL, completion: { image in
-            guard let img = image?.resizeImage(targetSize: CGSize(width: 100, height: 100)) else { return }
-            self.image.image = img
-        })
-        
+        setImage(view: image, usingAlias: frnd.alias, orUrl: frnd.imageURL)
         fullname.text = "\(frnd.firstName) \(frnd.lastName)"
         username.text = frnd.alias
         dob.text = frnd.dateOfBirth

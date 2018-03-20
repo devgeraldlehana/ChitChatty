@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    
+    let cache = NSCache<NSString, UIImage>()
     var busyIndicator:UIView?
     override func viewDidLoad() {
         super.viewDidLoad()

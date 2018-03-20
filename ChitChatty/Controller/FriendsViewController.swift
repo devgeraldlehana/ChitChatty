@@ -9,7 +9,6 @@
 import UIKit
 
 class FriendsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    let cache = NSCache<NSString, UIImage>()
     var guid:String?
     var lastname:String?
     var friends = [Friends]()
@@ -67,16 +66,8 @@ class FriendsViewController: BaseViewController, UITableViewDelegate, UITableVie
         cell.accessoryType = .disclosureIndicator
         
         cell.imageView?.image = UIImage(named: "placeholder")?.resizeImage(targetSize: CGSize(width: 40, height: 40))
-        let cacheKey: NSString = NSString(string: alias)
-        if let cachedImage = self.cache.object(forKey: cacheKey) {
-            cell.imageView?.image =  cachedImage
-        } else {
-            NetworkController.image(fromUrl: friend.imageURL, completion: { image in
-                guard let img = image?.resizeImage(targetSize: CGSize(width: 40, height: 40)) else { return }
-                cell.imageView?.image = img
-                self.cache.setObject(img, forKey: cacheKey)
-            })
-        }
+        guard let iv = cell.imageView else { return cell }
+        setImage(view: iv, usingAlias: alias, orUrl: friend.imageURL)
         return cell
     }
 }

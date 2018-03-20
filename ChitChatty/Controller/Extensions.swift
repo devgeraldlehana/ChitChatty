@@ -105,3 +105,34 @@ extension UIViewController {
         }
     }
 }
+
+extension BaseViewController {
+    func getImage(usingAlias alias:String, orUrl url:String, size:CGSize = CGSize(width: 40, height: 40)) -> UIImage? {
+        var returnImage:UIImage?
+        let cacheKey: NSString = NSString(string: alias)
+        if let cachedImage = self.cache.object(forKey: cacheKey) {
+            return cachedImage
+        } else {
+            NetworkController.image(fromUrl: url, completion: { image in
+                guard let img = image?.resizeImage(targetSize: size) else { return }
+                self.cache.setObject(img, forKey: cacheKey)
+                returnImage = img
+            })
+        }
+        return returnImage
+    }
+    
+    func setImage(view:UIImageView, usingAlias alias:String, orUrl url:String, size:CGSize = CGSize(width: 40, height: 40)) {
+        let cacheKey: NSString = NSString(string: alias)
+        if let cachedImage = self.cache.object(forKey: cacheKey) {
+            view.image = cachedImage
+        } else {
+            NetworkController.image(fromUrl: url, completion: { image in
+                guard let img = image?.resizeImage(targetSize: size) else { return }
+                self.cache.setObject(img, forKey: cacheKey)
+                view.image = img
+            })
+        }
+    }
+}
+
