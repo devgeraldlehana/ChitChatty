@@ -25,7 +25,6 @@ class NetworkController {
             do {
                 let loginInfo = try JSONDecoder().decode(LoginInfo.self, from: data)
                 completion(loginInfo)
-                print("response data:", loginInfo)
             } catch let err {
                 print("Login Error: \(err.localizedDescription)")
             }
@@ -46,7 +45,6 @@ class NetworkController {
             do {
                 let friendsinfo = try JSONDecoder().decode(FriendsInfo.self, from: data)
                 completion(friendsinfo)
-                print("response data:", friendsinfo)
             } catch let err {
                 print("Login Error: \(err.localizedDescription)")
             }

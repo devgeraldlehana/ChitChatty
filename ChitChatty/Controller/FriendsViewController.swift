@@ -9,20 +9,17 @@
 import UIKit
 
 class FriendsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    
     let cache = NSCache<NSString, UIImage>()
-    
     var guid:String?
     var lastname:String?
     var friends = [Friends]()
+    var passedFriend:Friends?
     @IBOutlet weak var friendsTableview: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         friendsTableview.tableFooterView = UIView(frame: .zero)
         guard let gd = guid else { return }
         guard let ln = lastname else { return }
-        showBusyIndicator(withTitle: "Loading Friends...")
         NetworkController.retrieveFriends(withGUID: gd, andLastname: ln) { friends in
             if let status = friends?.result {
                 if !status {
@@ -38,10 +35,21 @@ class FriendsViewController: BaseViewController, UITableViewDelegate, UITableVie
                 self.presentDialog(message: "Unexpected data received.")
             }
         }
-        dismissBusyIndicator()
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? FriendsDetailsViewController {
+            vc.friend = passedFriend
+        }
     }
     
     //MARK: Tableview
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        passedFriend = friends[indexPath.row]
+        performSegue(withIdentifier: "segFriendDetails", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friends.count
     }
@@ -50,8 +58,10 @@ class FriendsViewController: BaseViewController, UITableViewDelegate, UITableVie
         let friend = friends[indexPath.row]
         let alias = friend.alias
         let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "cell")
+        cell.textLabel?.font = UIFont.chitChattyBody
         cell.textLabel?.textColor = UIColor.chitChattyBlack
         cell.textLabel?.text = "\(friend.firstName) \(friend.lastName)"
+        cell.detailTextLabel?.font = UIFont.chitChattyCaption1
         cell.detailTextLabel?.textColor = UIColor.chitChattyBlue
         cell.detailTextLabel?.text = "\(alias)"
         cell.accessoryType = .disclosureIndicator

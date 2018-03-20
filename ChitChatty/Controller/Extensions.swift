@@ -13,6 +13,11 @@ extension UIColor {
     static let chitChattyBlue = UIColor(red: 68.0/255.0, green: 197.0/255.0, blue: 176.0/255.0, alpha: 1.0)
 }
 
+extension UIFont {
+    static let chitChattyBody = UIFont(name: "HelveticaNeueLight", size: 17.0)
+    static let chitChattyCaption1 = UIFont(name: "HelveticaNeueLight", size: 12.0)
+}
+
 public extension UITableView {
     public func scrollToTop(animated: Bool = true) {
         setContentOffset(CGPoint.zero, animated: animated)
