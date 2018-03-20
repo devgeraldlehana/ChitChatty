@@ -143,7 +143,7 @@ extension BaseViewController {
 extension UserDefaults{
     func registerDefaults(){
         UserDefaults.standard.register(defaults: ["\(UserDefaultsKeys.BiometricAuthentication.rawValue)" : true])
-        UserDefaults.standard.register(defaults: ["\(UserDefaultsKeys.ImageDownoading.rawValue)" : false])
+        UserDefaults.standard.register(defaults: ["\(UserDefaultsKeys.ImageDownoading.rawValue)" : true])
     }
     
     func get(key:UserDefaultsKeys) -> Bool {
