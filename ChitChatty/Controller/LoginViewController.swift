@@ -25,9 +25,6 @@ class LoginViewController: BaseViewController {
         let pi = UIImage(named: "password")?.resizeImage(targetSize: CGSize(width: size, height: size))
         username.addPaddingLeftIcon(ui!, padding: 10.0)
         password.addPaddingLeftIcon(pi!, padding: 10.0)
-        
-        username.text = "user"
-        password.text = "1234"
     }
     
     override func viewDidAppear(_ animated: Bool) {
