@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum UserDefaultsKeys : String {
-    case BiometricAuthentication
-    case ImageDownoading
+enum UserDefaultsKeys : Int {
+    case BiometricAuthentication = 06110
+    case ImageDownoading = 50573
 }

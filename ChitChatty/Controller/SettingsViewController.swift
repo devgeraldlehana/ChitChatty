@@ -42,9 +42,29 @@ class SettingsViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let settingsItem = numberOfDataInSection[indexPath.section][indexPath.row]
-        let cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = settingsItem.itemTitle
-        return cell
+        if settingsItem.itemSection.contains("Allow") {
+            let cell = UITableViewCell.init(style: .default, reuseIdentifier: "cellBasicSwitch")
+            cell.textLabel?.text = settingsItem.itemTitle
+            
+            let sv = UISwitch(frame: .zero)
+            let udKey:UserDefaultsKeys = settingsItem.itemTitle.contains("Image") ? .ImageDownoading : .BiometricAuthentication
+            sv.setOn(UserDefaults.standard.get(key: udKey), animated: false)
+            sv.tag = udKey.rawValue
+            sv.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
+            cell.selectionStyle = .none
+            cell.accessoryView = sv
+            return cell
+        } else {
+            let cell = UITableViewCell.init(style: .default, reuseIdentifier: "cellBasic")
+            cell.accessoryType = .disclosureIndicator
+            cell.textLabel?.text = settingsItem.itemTitle
+            return cell
+        }
+    }
+    
+    @objc func switchChanged(_ sender : UISwitch!){
+        guard let udKey = UserDefaultsKeys(rawValue: sender.tag) else { return }
+        UserDefaults.standard.set(value: sender.isOn, forKey: udKey)
     }
     
     
