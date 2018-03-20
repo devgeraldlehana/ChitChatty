@@ -106,7 +106,7 @@ extension UIViewController {
     }
 }
 
-extension BaseViewController {
+extension BaseViewController {    
     func getImage(usingAlias alias:String, orUrl url:String, size:CGSize = CGSize(width: 40, height: 40)) -> UIImage? {
         var returnImage:UIImage?
         let cacheKey: NSString = NSString(string: alias)

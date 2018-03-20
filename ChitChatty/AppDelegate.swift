@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.chitChattyBlue
         UINavigationBar.appearance().tintColor = UIColor.chitChattyBlack
         UITabBar.appearance().tintColor = UIColor.chitChattyBlack
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .normal)
         UserDefaults.standard.registerDefaults()
         return true
     }

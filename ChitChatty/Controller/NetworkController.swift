@@ -26,6 +26,7 @@ class NetworkController {
                 let loginInfo = try JSONDecoder().decode(LoginInfo.self, from: data)
                 completion(loginInfo)
             } catch let err {
+                completion(LoginInfo(result: false, error: err.localizedDescription, guid: nil, firstName: nil, lastName: nil))
                 print("Login Error: \(err.localizedDescription)")
             }
         }
@@ -46,6 +47,7 @@ class NetworkController {
                 let friendsinfo = try JSONDecoder().decode(FriendsInfo.self, from: data)
                 completion(friendsinfo)
             } catch let err {
+                completion(FriendsInfo(result: false, error: err.localizedDescription, friends: nil))
                 print("Login Error: \(err.localizedDescription)")
             }
         }
